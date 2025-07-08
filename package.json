@@ -1,0 +1,24 @@
+{
+  "name": "quaiantiquerestaurantfront",
+  "version": "1.0.0",
+  "description": "Ce site est un site vitrinne pour le restaurant Quai Antique",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exacodeweb/QuaiAntiqueRestaurantFront.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exacodeweb/QuaiAntiqueRestaurantFront/issues"
+  },
+  "homepage": "https://github.com/exacodeweb/QuaiAntiqueRestaurantFront#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1"
+  }
+}
