@@ -1,0 +1,16 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won’t be available)
+
+// variable de couleur issu de la charte graphique "maquetage Figma"
+$primary: #906427;
+$secondary: #86AC97;
+$dark: #392C1E;
+$black: #292222;
+$font-family-sans-serif: "Montserrat", sans-serif !default; 
+$font-family-sans-serif: "Hind-Madurai", serif !default; 
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
