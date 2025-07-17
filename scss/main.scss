@@ -7,7 +7,7 @@ html {
 }
 
 main {
-  margin-bottom: 250px;
+  margin-bottom: 270px; /*modifier 250px*/
 }
 
 footer.footer {
@@ -28,12 +28,12 @@ p {
 
 .image-card {
   position: relative;
-  &:hover {
-    .titre-image {
+  &:hover{
+    .titre-image, .action-image-buttons{
       opacity: 1;
     }
     img {
-      filter: brightness(0.2);
+      filter: brightness(0.3);/*0.2*/
     }
   }
   img {
@@ -47,10 +47,26 @@ p {
     opacity: 0;
     transition: 0.3s;
   }
+
+  .action-image-buttons {
+    /*background-color: red;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    opacity: 0; /* cacher par défaut */
+    transition: opacity 0.3s;
+  }
+
 }
 
-.hero-scene{
+.hero-scene {
 position: relative;
+margin-bottom: 15px;
 &::before{
 content:"";
 position: absolute;
@@ -75,4 +91,8 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 }
+}
+
+.form-label {
+  color: $primary;
 }
