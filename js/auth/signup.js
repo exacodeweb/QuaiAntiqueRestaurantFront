@@ -22,6 +22,7 @@ function validateForm(){
   const nomOk = validateRequired(inputNom);//vérification du nom saisi
   const prenomOk = validateRequired(inputPreNom);
   const mailOk = validateMail(inputMail);//vérification du format saisi
+  const passwordOk = validatePassword(inputPassword);//vérification du password saisi
 
   if(nomOk && prenomOk && mailOk && passwordOk){
     btnvalidation.disabled = false;
@@ -51,6 +52,32 @@ function validateMail(input){
   }
 }
 
+//verification de l'input du formulaire: password
+function validatePassword(input){
+  //Définir mon regex mail
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
+  //récuprération dans la variable mailUser le mail present dans l'input
+  const passwordUser = input.value;
+  // vérifier si le 'Regex' est présent
+  if (passwordUser.match(passwordRegex)) {
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+    return true;
+  }
+  else {
+    //C'est pas ok
+    input.classList.remove("is-valid");
+    input.classList.add("is-invalid");
+
+
+   // Si besoin, changer dynamiquement le message d'erreur :
+    //input.nextElementSibling.textContent = "Le mot de passe doit contenir : 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial.";
+
+
+    return false;
+  }
+}
+
 //création de la fonction validateRequired 'validé un champ requi parametre (input)'
 function validateRequired(input) {
 //function validateRequired() {
@@ -64,6 +91,10 @@ function validateRequired(input) {
     //C'est pas ok
     input.classList.remove("is-valid");
     input.classList.add("is-invalid");
+
+
+ 
+
     return false;
   }
 }
