@@ -32,11 +32,11 @@ const LoadContentPage = async () => {
   document.getElementById("main-page").innerHTML = html;
 
   // Ajout du contenu JavaScript
-  if (actualRoute.pathJS != "") {
+  if (actualRoute.pathJS != "") { /*modifier pathJS en pathjs*/
     // Création d'une balise script
     var scriptTag = document.createElement("script");
     scriptTag.setAttribute("type", "text/javascript");
-    scriptTag.setAttribute("src", actualRoute.pathJS);
+    scriptTag.setAttribute("src", actualRoute.pathJS);/*modifiaction de pathJS en pathj*/
 
     // Ajout de la balise script au corps du document
     document.querySelector("body").appendChild(scriptTag);
