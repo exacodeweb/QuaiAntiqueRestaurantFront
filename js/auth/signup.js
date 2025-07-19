@@ -6,6 +6,7 @@ const inputPreNom = document.getElementById("PrenomInput");
 const inputMail = document.getElementById("EmailInput");
 const inputPassword = document.getElementById("PasswordInput");
 const inputValidationPassword = document.getElementById("ValidatePasswordInput");
+const btnvalidation = document.getElementById("btn-validation-inscription");//récuperer le bouton de validation
 
 // ecouteur d'evenement sur keyup
 inputNom.addEventListener("keyup", validateForm);
@@ -16,21 +17,53 @@ inputValidationPassword.addEventListener("keyup", validateForm);
 
 //création de la fonction validateForm 'validé tout le formulaire'
 //verification des champs du formulaire: input du Nom et du Prénom
+//appel de la methode 'validateForm'
 function validateForm(){
- validateRequired (inputNom);
- validateRequired (inputPreNom);
+  const nomOk = validateRequired(inputNom);//vérification du nom saisi
+  const prenomOk = validateRequired(inputPreNom);
+  const mailOk = validateMail(inputMail);//vérification du format saisi
+
+  if(nomOk && prenomOk && mailOk && passwordOk){
+    btnvalidation.disabled = false;
+  }
+  else{
+    btnvalidation.disabled = true;
+  }
+}
+
+//verification de l'input du formulaire: email
+function validateMail(input){
+  //Définir mon regex mail
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //récuprération dans la variable mailUser le mail present dans l'input
+  const mailUser = input.value;
+  // vérifier si le 'Regex' est présent
+  if (mailUser.match(emailRegex)) {
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+    return true;
+  }
+  else {
+    //C'est pas ok
+    input.classList.remove("is-valid");
+    input.classList.add("is-invalid");
+    return false;
+  }
 }
 
 //création de la fonction validateRequired 'validé un champ requi parametre (input)'
-function validateRequired(input){
- if(input.value != ''){ //vérifier l'input
-  //C'est ok
-  input.classList.add("is-valid");
-  input.classList.remove("is-invalid");
+function validateRequired(input) {
+//function validateRequired() {
+  if (input.value != '') { //vérifier l'input
+    //C'est ok
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+    return true;
   }
-  else{
-  //C'est pas ok
-  input.classList.remove("is-valid");
-  input.classList.add("is-invalid");
- }
+  else {
+    //C'est pas ok
+    input.classList.remove("is-valid");
+    input.classList.add("is-invalid");
+    return false;
+  }
 }
