@@ -2,6 +2,17 @@
 
 //methode de connexion
 const tokenCookieName = "accesstoken";
+const signoutBtn = document.getElementById("signout-btn");
+
+// écouteur bouton déconnexion
+signoutBtn.addEventListener("click", signout);
+
+// methode pour stopé le cookie de connexion
+function signout(){
+  eraseCookie(tokenCookieName);
+  window.location.reload();
+}
+
 //méthode de connexion
 function setToken(token){
   setCookie(tokenCookieName, token, 7);//durée de validité du token 
