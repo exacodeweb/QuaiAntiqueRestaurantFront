@@ -17,6 +17,8 @@ function checkCredentials(){
       setToken(token);
     //Placé ce token en cookie
 
+    setCookie(RoleCookieName, "client", 7);//pour la connexion
+
     window.location.replace("/");
   }
   else{
@@ -24,3 +26,4 @@ function checkCredentials(){
     PasswordInput.classList.add("is-invalid");
   }
 }
+
