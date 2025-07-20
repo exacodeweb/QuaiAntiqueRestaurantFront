@@ -5,7 +5,7 @@ export const allRoutes = [ // Toute les routes sont définie dans ce tableaux
     new Route("/", "Accueil", "/pages/home.html"),/*new Route("/adresse du site",*/
     new Route("/galerie", "La galerie", "/pages/galerie.html"),
     /*new Route("/Galerie", "Galerie", "/pages/Galerie.html", "/js/galerie.js"),*/ //ligne pour ajouter une nouvelle page
-    new Route("/signin", "Connexion", "/pages/auth/signin.html"),
+    new Route("/signin", "Connexion", "/pages/auth/signin.html", "/js/auth/signin.js"),
     /*new Route("/signup", "Inscription", "/pages/auth/signup.html"),*/
     //new Route("/signup", "Inscription", "/pages/auth/signup.html"),//, "/js/auth/signup.js"),
     new Route("/signup", "Inscription", "/pages/auth/signup.html", "/js/auth/signup.js"),
