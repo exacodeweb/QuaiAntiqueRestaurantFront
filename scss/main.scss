@@ -29,7 +29,8 @@ p {
 .image-card {
   position: relative;
   &:hover{
-    .titre-image, .action-image-buttons{
+    .titre-image, 
+    .action-image-buttons{
       opacity: 1;
     }
     img {
@@ -37,7 +38,7 @@ p {
     }
   }
   img {
-    transition: 0.3s;
+    transition: all 0.3s;
   }
   .titre-image {
     position: absolute;

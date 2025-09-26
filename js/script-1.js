@@ -32,17 +32,17 @@ function getToken(){
   return getCookie(tokenCookieName);
 }
 
-// methode N° 1 placé un cookie
+// mthode N° 1 placé un cookie
 function setCookie(name,value,days) {
-    let expires = "";
+    var expires = "";
     if (days) {
-        let date = new Date();
+        var date = new Date();
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
-// methode N° 2 récupérer un cookie
+// mthode N° 2 récupérer un cookie
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -54,7 +54,7 @@ function getCookie(name) {
     return null;
 }
 
-// methode N° 3 suprimé un cookie
+// mthode N° 3 suprimé un cookie
 function eraseCookie(name) {   
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }

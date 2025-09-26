@@ -55,7 +55,7 @@ const LoadContentPage = async () => {
   // Ajout du contenu JavaScript
   if (actualRoute.pathJS != "") { /*modifier pathJS en pathjs*/
     // Création d'une balise script
-    var scriptTag = document.createElement("script");
+    let scriptTag = document.createElement("script");
     scriptTag.setAttribute("type", "text/javascript");
     scriptTag.setAttribute("src", actualRoute.pathJS);/*modifiaction de pathJS en pathj*/
 
@@ -91,12 +91,4 @@ window.route = routeEvent;
 
 // Chargement du contenu de la page au chargement initial
 LoadContentPage();
-
-
-//-----------------------------------------------------------------------------------------
-
-
-
-
-
 
