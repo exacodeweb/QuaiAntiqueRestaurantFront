@@ -9,7 +9,7 @@ export default class Route { // ce fichier contient toute la logique de routage
 }
 
 /* ajout de tableau
-[] Tous le monde peut y acceder
+[] Tous le monde peut y acceder 'Tableau vide'
 ["disconnected"] -> Réserver aux utilisateurs déconnecté
 ["client"] -> Réserver aux utilisateurs avec le rôle client
 ["admin"] -> Réserver aux utilisateurs avec le rôle admin
