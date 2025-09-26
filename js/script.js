@@ -5,6 +5,8 @@ const tokenCookieName = "accesstoken";
 const RoleCookieName = "role";
 const signoutBtn = document.getElementById("signout-btn");
 
+const apiUrl = "http://127.0.0.1:8000/api/";
+
 // écouteur bouton déconnexion
 signoutBtn.addEventListener("click", signout);
 
@@ -30,17 +32,17 @@ function getToken(){
   return getCookie(tokenCookieName);
 }
 
-// mthode N° 1 placé un cookie
+// methode N° 1 placé un cookie
 function setCookie(name,value,days) {
-    var expires = "";
+    let expires = "";
     if (days) {
-        var date = new Date();
+        let date = new Date();
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
-// mthode N° 2 récupérer un cookie
+// methode N° 2 récupérer un cookie
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -52,7 +54,7 @@ function getCookie(name) {
     return null;
 }
 
-// mthode N° 3 suprimé un cookie
+// methode N° 3 suprimé un cookie
 function eraseCookie(name) {   
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
