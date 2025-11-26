@@ -7,9 +7,11 @@ html {
 }
 
 main {
-  margin-bottom: 270px; /*modifier 250px*/
+  margin-bottom: 270px;
+  /*modifier 250px*/
 }
 
+//FOOTER
 footer.footer {
   padding: 15px;
   position: absolute;
@@ -22,35 +24,71 @@ p {
   font-size: 18px;
 }
 
-*.text-justify {
-  text-align: justify;
+// PAGE D'ACCUEIL BIG TITLE
+.hero-scene {
+  position: relative;
+  margin-bottom: 15px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/FondHeroScene.jpg);
+    background-size: cover;
+    filter: brightness(0.3); // luminosité 30%
+  }
+
+  * {
+    //Positionner les éléments devant le ::before
+    position: relative;
+  }
+
+  .hero-scene-content {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  *.text-justify {
+    text-align: justify;
+  }
 }
 
+// PAGE GALERIE IMAGES 'plus mode tactile responsive'
 .image-card {
   position: relative;
-  &:hover{
-    .titre-image, 
-    .action-image-buttons{
+  &:hover {
+    .titre-image,
+    .action-image-buttons {
+      // Bouton modale edité et suprimer image galerie
       opacity: 1;
     }
     img {
-      filter: brightness(0.3);/*0.2*/
+      filter: brightness(0.3); // opacité de l'image 30%
     }
   }
+
   img {
     transition: all 0.3s;
   }
+
   .titre-image {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: 0.3s;
+    transition: all 0.3s; //ajout "all" correctif
   }
 
+  /*== BOUTON MODAL GALERIE ==*/
   .action-image-buttons {
-    /*background-color: red;*/
+    //Test: background-color: red !important;
     position: absolute;
     top: 0;
     left: 0;
@@ -58,52 +96,31 @@ p {
     padding: 5px;
     display: flex;
     justify-content: space-between;
-
-    opacity: 0; /* cacher par défaut */
+    /* cacher par défaut */
+    opacity: 0;
     transition: opacity 0.3s;
   }
-
 }
 
-.hero-scene {
-position: relative;
-margin-bottom: 15px;
-&::before{
-content:"";
-position: absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-image: url(../images/FondHeroScene.jpg);
-background-size: cover;
-filter: brightness(0.3); // luminosité 30%
-}
-
-*{
-//Positionner les éléments devant le ::before
-position:relative;
-}
-
-.hero-scene-content{
-height: 300px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
-}
-
+// FORMULAIRE CONNEXION
 .form-label {
   color: $primary;
 }
 
-.allReservation {
+//FORMULAIRE DE RESERVATION
+.allreservations {
   a {
     display: block;
     color: black;
     padding: 10px;
   }
 }
-  
 
+
+.is-valid {
+  border-color: #28a745 !important; /* Vert */
+}
+
+.is-invalid {
+  border-color: #dc3545 !important; /* Rouge */
+}

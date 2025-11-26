@@ -1,14 +1,15 @@
+//== module d'authentification ==//
 export default class Route { // ce fichier contient toute la logique de routage
-  constructor (url, title, pathHtml, authorize, pathjS = ""){ /*pathjs*/
+  constructor (url, title, pathHtml, authorize, pathJS = ""){ /*pathjs*/
   this.url = url; // ici La class Route contient une URL
   this.title = title; // Titre de la page
   this.pathHtml = pathHtml; // Le lien vers le fichier HTML
-  this.pathJS = pathjS // Le lien vers le fichier JAVASCRIPT pathjs
-    this.authorize = authorize;
+  this.pathJS = pathJS // Le lien vers le fichier JAVASCRIPT pathjs
+  this.authorize = authorize;
   }
 }
 
-/* ajout de tableau
+/* ajout de tableau 'authorize' 3 valeurs possible
 [] Tous le monde peut y acceder 'Tableau vide'
 ["disconnected"] -> Réserver aux utilisateurs déconnecté
 ["client"] -> Réserver aux utilisateurs avec le rôle client

@@ -1,77 +1,63 @@
 <div class="hero-scene text-center text-white">
   <div class="hero-scene-content">
-    <!--<p>Le chef Arnaud Michant vous invite au</p>-->
     <h1>Galerie</h1>
-    <!--<button class="btn btn-primary">Réserver</button>-->
   </div>
 </div>
-
-<!--<h1>Galerie</h1>-->
-
 <div class="container">
   <div class="text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">Ajouter une photo</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">Ajouter une
+      photo</button>
   </div>
-
   <div class="row row-cols-2 row-cols-lg-3">
     <div class="col p-3">
       <div class="image-card text-white">
-        <img src="../images/chef.jpg" class="rounded w-100">
+        <img src="../images/chef.jpg" class="rounded w-100" alt="">
         <p class="titre-image">Titre</p>
-
         <div class="action-image-buttons" data-show="admin">
-          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
-          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
-          <!--data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">-->
-
-          <!--<button type="button" class="btn btn-outline-light"><i class="bi bi-pencil-square"></i></button>
-          <button type="button" class="btn btn-outline-light" ><i class="bi bi-trash"></i></button>-->
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal">
+            <i class="bi bi-trash"></i>
+          </button>
         </div>
-
       </div>
     </div>
-
     <div class="col p-3">
       <div class="image-card text-white">
-        <img src="../images/brick-wall-1834784_1280.jpg" class="rounded w-100">
+        <img src="../images/brick-wall-1834784_1280.jpg" class="rounded w-100" alt="">
         <p class="titre-image">Titre</p>
       </div>
     </div>
-
     <div class="col p-3">
       <div class="image-card text-white">
-        <img src="../images/FondHeroScene.jpg" class="rounded w-100">
+        <img src="../images/FondHeroScene.jpg" class="rounded w-100" alt="">
         <p class="titre-image">Titre</p>
       </div>
     </div>
-
     <div class="col p-3">
       <div class="image-card text-white">
-        <img src="../images/mediterranean-cuisine-2378758_1280.jpg" class="rounded w-100">
+        <img src="../images/mediterranean-cuisine-2378758_1280.jpg" class="rounded w-100" alt="">
         <p class="titre-image">Titre</p>
       </div>
     </div>
-
     <div class="col p-3">
       <div class="image-card text-white">
-        <img src="../images/vins.jpg" class="rounded w-100">
+        <img src="../images/vins.jpg" class="rounded w-100" alt="">
         <p class="titre-image">Titre</p>
       </div>
     </div>
-
     <div class="col p-3">
       <div class="image-card text-white">
-        <img src="../images/saumon.jpg" class="rounded w-100">
+        <img src="../images/saumon.jpg" class="rounded w-100" alt="">
         <p class="titre-image">Titre</p>
       </div>
     </div>
-
   </div>
-
   <div class="text-center">
-    <a href="#" class="btn btn-primary" >Réserver</a>
+    <!--<a href="/allResa" class="btn btn-primary">Réserver</a> stopé pour test /reserver-->
+    <a href="/reserver" class="btn btn-primary">Réserver</a>
   </div>
-
 </div>
 
 <!-- Modal Edition -->
@@ -85,33 +71,26 @@
       </div>
       <div class="modal-body">
         <!--Formulaire d'édition de photo.-->
-
         <form>
           <div class="mb-3">
             <label for="NamePhotoInput" class="form-label">Titre de la photo</label>
-            <input type="text" class="form-control" id="NamePhotoInput" placeholder="Lasagne à la bolognese et voila">
+            <input type="text" class="form-control" id="NamePhotoInput" placeholder="Lasagne à la bolognese">
           </div>
           <div class="mb-3">
-            <label for="ImageInput" class="form-label">Mot de passe</label>
+            <label for="ImageInput" class="form-label">Image</label>
             <input type="file" class="form-control" id="ImageInput">
           </div>
           <div class="text-center">
             <button type="button" class="btn btn-primary">Enregistrer</button>
           </div>
         </form>
-
       </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>-->
     </div>
   </div>
 </div>
 
 <!-- Modal Suppression -->
-<div class="modal fade" id="DeletePhotoModal" tabindex="-1" aria-labelledby="DeletePhotoModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="DeletePhotoModal" tabindex="-1" aria-labelledby="DeletePhotoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -120,24 +99,17 @@
       </div>
       <div class="modal-body">
         <!--Formulaire d'édition de photo.-->
-
         <form>
           <div class="mb-3">
             <p>Titre</p>
-            <img src="../images/vins.jpg" class="rounded w-100">
+            <img src="../images/vins.jpg" class="rounded w-100" alt="">
           </div>
-
           <div class="text-center">
             <button type="button" class="btn btn-danger">Supprimer</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
           </div>
         </form>
-
       </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>-->
     </div>
   </div>
 </div>

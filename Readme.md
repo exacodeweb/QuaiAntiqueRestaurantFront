@@ -5,6 +5,4 @@ Ce site est un site vitrinne pour le restaurant Quai Antique
 
 # déploiement
 
-
-
 <!-- Documentation bootstrap (https://icons.getbootstrap.com/) -->
