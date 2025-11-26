@@ -1,109 +1,31 @@
-//récupération du mail et du password et boutton connexion
+// Récupération des champs et du bouton connexion
 const mailInput = document.getElementById("EmailInput");
 const PasswordInput = document.getElementById("PasswordInput");
 const btnSingnin = document.getElementById("btnSignin");
-const signinForm = document.getElementById("signinForm");//recuperation du formulaire
+//const signinForm = document.getElementById("signinForm"); //Leçon API connexion voir page signin.html
 
-//écouteur d'évenement sur le boutton connexion
-btnSingnin.addEventListener("click", checkCredentials);
+// Écouteur d'évènement sur le bouton connexion
+btnSignin.addEventListener("click", checkCredentials);
 
-function checkCredentials(){
-  const dataForm = new FormData(signinForm);
+function checkCredentials() {
+  //alert("bouton cliqué")
+  // Ici il faudra appeler l'API pour vérifier les crédentials en BDD "information factice"
 
-//------------------------------------ method fetch
-  const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+  // ⚠️ Ici il faudra appeler l'API pour vérifier les crédentials en BDD //simulation de connexion
+  if(mailInput.value == "test@mail.com" && PasswordInput.value == "123"){
+    alert("Vous êtes connecté");
 
-const raw = JSON.stringify({
-  //"firstName": dataForm.get ("nom"),
-  //"lastName": dataForm.get ("prenom"),
-  "username": dataForm.get ("email"),
-  //"email": dataForm.get ("email"),
-  "password": dataForm.get ("mdp")
-});
-
-/*const raw = JSON.stringify({
-  "firstName": "Test fetch",
-  "lastName": "test test fetch",
-  "email": "test1depuisQuaiAntique@mail.com",
-  "password": "Azerty25"
-});*/
-
-/*const raw = JSON.stringify({
-  "firstName": "Test fetch",
-  "lastName": "Test",
-  "email": null,  // <- volontairement incorrect
-  "password": "Azerty25"
-});*/
-
-
-const requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow"
-};
-
-//fetch("http://127.0.0.1:8000/api/login", requestOptions)
-fetch(apiUrl+"login", requestOptions)
-//fetch("http://127.0.0.1:8000/api/registration", requestOptions)
-  .then(response => {
-    if (response.ok){
-      return response.json();
-    }
-    else{
-      //--alert ("Erreur lors de l'inscription");
-      mailInput.classList.add("is-invalid");
-      PasswordInput.classList.add("is-invalid");
-    }
-  })
-  //.then((response) => response.json())
-  .then((result) => {
-    //--alert("Bravo "+dataForm.get("prenom")+", vous êtes maintenant inscrit, vous pouvez vous connecter.");
-    //alert("Bravo vous êtes maintenant inscrit, vous pouvez vous connecter.");
-    //--document.location.href="/signin"
-    //console.log(result)
-
-    //-------------------------
-    //Il faudra récupérer le vrai token
-    //----const token = "lkjsdngfljsqdnglkjsdbglkjqskjgkfjgbqslkfdgbskldfgdfdsdgf";
-    const token = result.apiToken; 
-      setToken(token);
+    //Il faudra récupérer le vrai token //simulation de Token
+    const token = "lkjsdngfljsqdnglkjsdbglkjqskjgkfjgbqslkfdgbskldfgdfdsdgf";
+    setToken(token);// ! lié au fichier script.js, appelle de la methode
     //Placé ce token en cookie
 
-
-    //setCookie(RoleCookieName, "client", 7);//pour la connexion admin ou client
-    //--setCookie(RoleCookieName, "admin", 7);//pour la connexion admin ou client
-    setCookie(RoleCookieName, result.roles[0], 7);//pour la connexion admin ou client
-
+    //setCookie("role", "admin", 7);// a partir de la leçons afficher/masquer voir la ligne du desous
+    setCookie(RoleCookieName, "client", 7);// a partir de la leçons afficher/masquer on peut tester avec "admin" ou "client"
     window.location.replace("/");
-    //-------------------------
-
-  })
-  .catch((error) => console.error(error));
+  }
+  else{
+    mailInput.classList.add("is-invalid");
+    PasswordInput.classList.add("is-invalid");
+  }
 }
-
-//------------------------------------
-
-  //alert("bouton cliqué"); Test
-  // Ici il faudra appeler l'API pour vérifier les crédentials en BDD
-
-  //vérification des éléments du formulaire
-  //--if(mailInput.value == "test@mail.com" && PasswordInput.value == "123"){
-    //alert("Vous êtes connecté"); 
-
-    //Il faudra récupérer le vrai token
-    //--const token = "lkjsdngfljsqdnglkjsdbglkjqskjgkfjgbqslkfdgbskldfgdfdsdgf";
-      //--setToken(token);
-    //Placé ce token en cookie
-
-    //--setCookie(RoleCookieName, "client", 7);//pour la connexion admin ou client
-
-    //--window.location.replace("/");
-  //--}
-  //--else{
-    //--mailInput.classList.add("is-invalid");
-    //--PasswordInput.classList.add("is-invalid");
-  //--}
-//--}
-
