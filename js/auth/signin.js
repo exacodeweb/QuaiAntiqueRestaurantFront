@@ -1,3 +1,4 @@
+// js/auth/signin.js
 // Récupération des champs et du bouton connexion
 const mailInput = document.getElementById("EmailInput");
 const PasswordInput = document.getElementById("PasswordInput");

@@ -1,3 +1,4 @@
+// js/auth/signup.js
 // fichier de script de validation // Implementer le js de ma page
 // Test: alert("Test-connex-javascript");
 
