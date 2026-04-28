@@ -1,5 +1,5 @@
+// js/script.js
 // méthode de gestion de cookie // message de commit: gestion des cookies
-
 //methode de connexion
 const tokenCookieName = "accesstoken";
 //methode de suppression (leçons afficher/masquer des éléments)
@@ -117,4 +117,14 @@ function showAndHideElementsForRoles() {
             break; 
       }
     });
+}
+
+// vérifier le titre à l'enregistrement, et à l'inclusion dans la pages 
+// ! les chaines de caractères doivent être au format texte, pas au format HTML
+
+// Protection XSS
+function sanitizeHTML(text){
+  const tempHTML = document.createElement('div');
+  tempHTML.textContent = text;
+  return tempHTML.innerHTML;
 }
