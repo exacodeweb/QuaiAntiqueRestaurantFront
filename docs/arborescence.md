@@ -3,6 +3,69 @@ D:/ProjetFilRouge/
     ├── QuaiAntiqueRestaurantFront/
     ├    ├── .git
     ├    ├ 
+    ├    ├── .vscode/
+    ├    ├    ├──settings.json
+    ├    ├    └──
+    ├    ├ 
+    ├    ├── images/
+    ├    ├    ├──img1.jpg
+    ├    ├    ├──img2.jpg
+    ├    ├    ├──img3.jpg
+    ├    ├    ├──img4.jpg
+    ├    ├    ├──img5.jpg
+    ├    ├    └──img6.jpg
+    ├    ├ 
+    ├    ├── js/
+    ├    ├    ├──auth
+    ├    ├    ├   ├──signin.js
+    ├    ├    ├   └──signup.js
+    ├    ├    ├  
+    ├    ├    └──script.js
+    ├    ├ 
+    ├    ├── node_modules/
+    ├    ├    ├──@poppersjs/
+    ├    ├    ├──bootstrap/
+    ├    ├    ├──bootstrap-icons/
+    ├    ├    └──package-lock.json
+    ├    ├    
+    ├    ├── pages/
+    ├    ├    ├──auth
+    ├    ├    ├   ├──account.html
+    ├    ├    ├   ├──editPassword.html
+    ├    ├    ├   ├──sigin.html
+    ├    ├    ├   └──signup.html
+    ├    ├    ├
+    ├    ├    ├──reservations
+    ├    ├    ├   ├──allResa.html
+    ├    ├    ├   └──├reserver.html
+    ├    ├    ├
+    ├    ├    ├──404.html
+    ├    ├    ├──galerie.html
+    ├    ├    └──home.html
+    ├    ├ 
+    ├    ├── Router/
+    ├    ├    ├──allRoute.js
+    ├    ├    ├──Route.js
+    ├    ├    └──router.js
+    ├    ├ 
+    ├    ├── scss/
+    ├    ├    ├──_custom.scss
+    ├    ├    ├──main.css
+    ├    ├    ├──main.css.map
+    ├    ├    └──main.scss
+    ├    ├ 
+    ├    ├── .gitignore
+    ├    ├── index.html
+    ├    ├── package-lock.json    
+    ├    ├── package.json
+    ├    └──Readme.md
+    └──
+
+//L'arborescence actuelle du projet, est celle-ci au 30/10/2025
+D:/ProjetFilRouge/
+    ├── QuaiAntiqueRestaurantFront/
+    ├    ├── .git
+    ├    ├ 
     ├    ├── images/
     ├    ├    ├──img1.jpg
     ├    ├    ├──img2.jpg

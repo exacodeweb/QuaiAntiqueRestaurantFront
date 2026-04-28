@@ -5,7 +5,7 @@ export const allRoutes = [ // Toute les routes sont définie dans ce tableaux
   // Page accueil
   new Route("/", "Accueil", "/pages/home.html", []),//, [] new Route("/adresse du site",*/ //leçons: auth routage []
   // Page Galerie
-  new Route("/galerie", "La galerie", "/pages/galerie.html", []),//, [] " /js/galerie.js"  //leçons: auth routage []
+  new Route("/galerie", "La galerie", "/pages/galerie.html", [], "js/galerie.js"),//, [] " /js/galerie.js"  //leçons: auth routage []
   // Page connexion
   new Route("/signin", "Connexion", "/pages/auth/signin.html", ["disconnected"], "/js/auth/signin.js"),//leçons: dynamiser la parti front:, "/js/auth/signin.js" //  //leçons: auth routage []
   new Route("/signup", "Inscription", "/pages/auth/signup.html", ["disconnected"], "/js/auth/signup.js"),//leçons: champs requis // //leçons: auth routage []

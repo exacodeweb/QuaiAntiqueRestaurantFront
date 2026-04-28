@@ -1,3 +1,4 @@
+// Router/router.js
 import Route from "./Route.js";
 import {allRoutes, websiteName} from "./allRoutes.js";
 
@@ -29,7 +30,7 @@ const actualRoute = getRouteByUrl(path);
 
 // vérifier les droits d'access à la page
 const allRolesArray = actualRoute.authorize;
-// verification uniquement si la taille du tableau est > 0
+// verification de droit uniquement si la taille du tableau est > 0
 if (allRolesArray.length > 0){//verification si tableau est > 0
   if (allRolesArray.includes("disconnected")){// verifie si utilisateur disconnected
     if(isConnected()){// si connecter on redirige
