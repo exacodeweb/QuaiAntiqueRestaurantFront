@@ -14,5 +14,5 @@ export default class Route { // ce fichier contient toute la logique de routage
 ["disconnected"] -> Réserver aux utilisateurs déconnecté
 ["client"] -> Réserver aux utilisateurs avec le rôle client
 ["admin"] -> Réserver aux utilisateurs avec le rôle admin
-["admin", "client"]Réserver aux utilisateurs avec le rôle admin ou client
+["admin", "client"] -> Réserver aux utilisateurs avec le rôle admin ou client
 */
