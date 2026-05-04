@@ -1,22 +1,225 @@
 // js/script.js
+
+// ============================== //
+// Gestion des cookies et session
+// ============================== //
+
+// Nom du cookie contenant le token JWT
+const tokenCookieName = "accesstoken";
+
+// Nom du cookie contenant le rôle utilisateur
+const RoleCookieName = "role";
+
+// URL de l'API backend Symfony
+const apiUrl = "http://127.0.0.1:8000/api/";
+
+// Bouton de déconnexion
+const signoutBtn = document.getElementById("signout-btn");
+
+// Vérifie que le bouton existe avant d'ajouter l'événement
+if (signoutBtn) {
+  signoutBtn.addEventListener("click", signout);
+}
+
+// ============================== //
+// Connexion / Déconnexion
+// ============================== //
+
+// Sauvegarde du token JWT dans un cookie //méthode de connexion
+function setToken(token) {
+
+  setCookie(tokenCookieName, token, 7); //durée de validité du token
+}
+
+// Récupération du token JWT
+function getToken() {
+
+  return getCookie(tokenCookieName); //récuppéré le cookie en Token
+}
+
+// Déconnexion utilisateur //methode de deconnexion
+function signout() {
+
+  eraseCookie(tokenCookieName);
+  eraseCookie(RoleCookieName);
+
+  window.location.reload();
+}
+
+// Vérifie si utilisateur connecté
+function isConnected() {
+
+  return getToken() !== null && getToken() !== undefined;
+}
+
+// ============================== //
+// Gestion des rôles
+// ============================== //
+
+// Récupération du rôle utilisateur
+function getRole() {
+
+  return getCookie(RoleCookieName);
+}
+
+// ============================== //
+// Gestion des cookies
+// ============================== //
+
+// Création cookie // methode N° 1 placé un cookie
+function setCookie(name, value, days) {
+
+  let expires = "";
+
+  if (days) {
+
+    const date = new Date();
+
+    date.setTime(
+      date.getTime() + (days * 24 * 60 * 60 * 1000)
+    );
+
+    expires = "; expires=" + date.toUTCString();
+  }
+
+  document.cookie =
+    name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Lecture cookie // methode N° 2 récupérer un cookie
+function getCookie(name) {
+
+  const nameEQ = name + "=";
+
+  const cookies = document.cookie.split(";");
+
+  for (let i = 0; i < cookies.length; i++) {
+
+    let cookie = cookies[i];
+
+    while (cookie.charAt(0) === " ") {
+
+      cookie = cookie.substring(1);
+    }
+
+    if (cookie.indexOf(nameEQ) === 0) {
+
+      return cookie.substring(
+        nameEQ.length,
+        cookie.length
+      );
+    }
+  }
+
+  return null;
+}
+
+// Suppression cookie // methode N° 3 suprimé un cookie
+function eraseCookie(name) {
+
+  document.cookie =
+    name +
+    "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+}
+
+// ============================== //
+// Affichage selon rôle utilisateur
+// ============================== //
+
+/*
+Roles possibles :
+
+- disconnected
+- connected
+- admin
+- client
+*/
+
+//methode pour afficher masquer les éléments en fonction du Role, leçons afficher/masquer
+function showAndHideElementsForRoles() {
+
+  const userConnected = isConnected();
+
+  const role = getRole(); //recuperer le role
+
+  // Tous les éléments contenant data-show
+  const allElementsToEdit =
+    document.querySelectorAll("[data-show]"); //recuperer les éléments
+
+  allElementsToEdit.forEach(element => {
+    //parcourir tout les éléments pour les 4 Roles
+    switch (element.dataset.show) {
+
+      case "disconnected":
+
+        if (userConnected) {
+          element.classList.add("d-none");
+        }
+
+        break;
+
+      case "connected":
+
+        if (!userConnected) {
+          element.classList.add("d-none");
+        }
+
+        break;
+
+      case "admin":
+
+        if (!userConnected || role !== "admin") {
+          element.classList.add("d-none");
+        }
+
+        break;
+
+      case "client":
+
+        if (!userConnected || role !== "client") {
+          element.classList.add("d-none");
+        }
+
+        break;
+    }
+  });
+}
+
+// ============================== //
+// Protection XSS
+// ============================== //
+
+// Nettoyage HTML avant affichage
+function sanitizeHTML(text) {
+
+  const tempHTML = document.createElement("div");
+
+  tempHTML.textContent = text;
+
+  return tempHTML.innerHTML;
+}
+
+
+
+// js/script-test.js
 // méthode de gestion de cookie // message de commit: gestion des cookies
 //methode de connexion
-const tokenCookieName = "accesstoken";
+/*const tokenCookieName = "accesstoken";
 //methode de suppression (leçons afficher/masquer des éléments)
 const RoleCookieName = "role";
 //methode de deconnexion (leçon deconnexion)
 const signoutBtn = document.getElementById("signout-btn");
 
-//const apiUrl = "http://127.0.0.1:8000/api/";//ajouter pour le backend //Leçons: ?
+const apiUrl = "http://127.0.0.1:8000/api/";//ajouter pour le backend //Leçons: connexion ,on peut plus tard changé d'api.
 
 // Écouteur d'évènement sur le bouton deconnexion
 signoutBtn.addEventListener("click", signout);
 //methode de récupération du role de l'utilisateur //leçon afficher/masquer
-function getRole(){
+function getRole() {
   return getCookie(RoleCookieName);
 }
 //methode de deconnexion
-function signout(){
+function signout() {
   eraseCookie(tokenCookieName);
   //eraseCookie("role")// leçon afficher/masquer
   eraseCookie(RoleCookieName);
@@ -24,48 +227,48 @@ function signout(){
 }
 
 //méthode de connexion
-function setToken (token){
-  setCookie (tokenCookieName, token, 7);//durée de validité du token
+function setToken(token) {
+  setCookie(tokenCookieName, token, 7);//durée de validité du token
 }
 //méthode récupération du token
-function getToken () {
-  return getCookie (tokenCookieName);//récuppéré le cookie en Token
-} 
+function getToken() {
+  return getCookie(tokenCookieName);//récuppéré le cookie en Token
+}
 // methode N° 1 placé un cookie
 function setCookie(name, value, days) {
-    var expires = "";//let
-    if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  var expires = "";//let
+  if (days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 // methode N° 2 récupérer un cookie
 function getCookie(name) {
-    var nameEQ = name + "=";//let
-    var ca = document.cookie.split(';');//let
-    for(var i=0;i < ca.length;i++) {//let
-        var c = ca[i];//let
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);//c.startsWith
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);//c.startsWith
-    }
-    return null;
+  var nameEQ = name + "=";//let
+  var ca = document.cookie.split(';');//let
+  for (var i = 0; i < ca.length; i++) {//let
+    var c = ca[i];//let
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);//c.startsWith
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);//c.startsWith
+  }
+  return null;
 }
 // methode N° 3 suprimé un cookie
-function eraseCookie(name) {   
-    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+function eraseCookie(name) {
+  document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 // fonction vérifier si connecté
-function isConnected(){
-    //if(getToken() == null || getToken == undefined){
-    if (getToken() == null || getToken() == undefined) {
-      return false;
-    }
-    else{
-      return true;
-    }
+function isConnected() {
+  //if(getToken() == null || getToken == undefined){
+  if (getToken() == null || getToken() == undefined) {
+    return false;
   }
+  else {
+    return true;
+  }
+}
 //----------------------------------------Test connexion
 // affichage de la modale
 /*if(isConnected()){
@@ -87,44 +290,45 @@ else{
 
 //methode pour afficher masquer les éléments en fonction du Role, leçons afficher/masquer
 // 💡 Fonction à insérer ici :
-function showAndHideElementsForRoles() {
+/*----------->function showAndHideElementsForRoles() {
   const userConnected = isConnected(); // ? l'utilisateur est-il connecter ?
-  const role =getRole();//recuperer  le role
- 
+  const role = getRole();//recuperer le role
+
   let allElementToEdit = document.querySelectorAll('[data-show]');//recuperer les éléments
 
-    allElementToEdit.forEach(Element =>{
-      switch(Element.dataset.show){//parcourir tout les éléments pour les 4 Roles
-        case 'disconnected':
-          if (userConnected){
-            Element.classList.add("d-none");
-          }
-            break;
-          case 'connected':
-          if (!userConnected){
-            Element.classList.add("d-none");
-          }
-            break;
-          case 'admin'://
-          if (!userConnected || role != "admin"){
-            Element.classList.add("d-none");
-          }
-            break;
-          case 'client'://
-          if (!userConnected || role != "client"){
-            Element.classList.add("d-none");
-          }
-            break; 
-      }
-    });
+  allElementToEdit.forEach(Element => {
+    switch (Element.dataset.show) {//parcourir tout les éléments pour les 4 Roles
+      case 'disconnected':
+        if (userConnected) {
+          Element.classList.add("d-none");
+        }
+        break;
+      case 'connected':
+        if (!userConnected) {
+          Element.classList.add("d-none");
+        }
+        break;
+      case 'admin'://
+        if (!userConnected || role != "admin") {
+          Element.classList.add("d-none");
+        }
+        break;
+      case 'client'://
+        if (!userConnected || role != "client") {
+          Element.classList.add("d-none");
+        }
+        break;
+    }
+  });
 }
 
 // vérifier le titre à l'enregistrement, et à l'inclusion dans la pages 
 // ! les chaines de caractères doivent être au format texte, pas au format HTML
 
 // Protection XSS
-function sanitizeHTML(text){
+function sanitizeHTML(text) {
   const tempHTML = document.createElement('div');
   tempHTML.textContent = text;
   return tempHTML.innerHTML;
 }
+*/

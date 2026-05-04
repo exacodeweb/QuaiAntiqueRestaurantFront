@@ -49,5 +49,81 @@ function getImage(titre, urlImage) {
         </div>
       </div>
     </div>
+
+    <!-- Ajout pour test -->
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="../images/brick-wall-1834784_1280.jpg" class="rounded w-100" alt="">
+        <p class="titre-image">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="../images/FondHeroScene.jpg" class="rounded w-100" alt="">
+        <p class="titre-image">Titre</p>
+                <div class="action-image-buttons" data-show="admin">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="../images/mediterranean-cuisine-2378758_1280.jpg" class="rounded w-100" alt="">
+        <p class="titre-image">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="../images/vins.jpg" class="rounded w-100" alt="">
+        <p class="titre-image">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="../images/saumon.jpg" class="rounded w-100" alt="">
+        <p class="titre-image">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   `;
 }

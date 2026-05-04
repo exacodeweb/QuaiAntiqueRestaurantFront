@@ -1,11 +1,11 @@
-<!-- Formulaire d'inscription -->
+<!-- pages/auth/signup.js "Formulaire d'inscription" -->
 <div class="hero-scene text-center text-white">
   <div class="hero-scene-content">
     <h1>Inscription</h1>
   </div>
 </div>
 <div class="container">
-  <form id="formulaireInscription">
+  <form id="formInscription"> <!-- envoyer des données formulaireInscription -->
     <div class="mb-3">
       <label for="NomInput" class="form-label">Nom</label>
       <input type="text" class="form-control" id="NomInput" placeholder="Votre nom" name="nom">
@@ -24,7 +24,7 @@
       <label for="EmailInput" class="form-label">Email</label>
       <input type="email" class="form-control" id="EmailInput" placeholder="test@mail.fr" name="email">
         <div class="invalid-feedback">
-          Le mail n'est pas au bon format.
+          Adresse email invalide ou déjà utilisée<!--Le mail n'est pas au bon format.-->
         </div>
     </div>
     <div class="mb-3">
